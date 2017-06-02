@@ -1,6 +1,7 @@
 import numpy as np
 import csv
 
+# 1 read names from both files
 a = []
 
 with open('raw_data/MERGED2014_15_PP.csv', 'rb') as f:
@@ -24,6 +25,8 @@ with open('raw_data/ranking.csv', 'rb') as f:
 
 rank = np.array(b)
 
+
+# 2 try to merge them
 def rep(i, pat1, pat2, head, tail):
 	temp = head + rank[i, 1].replace(pat1, pat2) + tail
 	if temp in name_list:
@@ -44,6 +47,8 @@ for i in range(len(rank)):
 	rep(i, "&", "and", "", "")
 	rep(i, "", "", "", "-Main Campus")
 
+
+# 3 if failed, try to find the most similar one
 bad_names = []
 
 for i in range(len(rank)):
@@ -60,6 +65,8 @@ for i in range(len(rank)):
 		else:
 			bad_names.append(i)
 
+
+# 4 save matching names to npy
 new_rank = []
 good_names = []
 for i in range(len(rank)):
@@ -74,6 +81,7 @@ np.save('data/1-new_rank.npy', np.array(new_rank))
 
 
 
+# 5 save new data to npy
 new_stat = []
 for row in stat:
 	if row[3] in good_names:
