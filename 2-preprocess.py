@@ -51,4 +51,5 @@ for j in range(m):
 			final_stat[i, j] = final_stat[i, j]
 
 final_stat = np.array(final_stat, dtype=np.float32)
-np.save('data/2-final_stat.npy', final_stat)
+final_stat_normalized = final_stat / (final_stat.max(axis=0) + 1e-10) # avoid divided by zero
+np.save('data/2-final_stat.npy', final_stat_normalized)
