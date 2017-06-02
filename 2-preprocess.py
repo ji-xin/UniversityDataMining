@@ -17,8 +17,8 @@ def isnum(s):
 		return False
 
 print(np.shape(stat))
-n = 217 # number of universities (210train + 7test)
-m = 1743 # number of attributes
+n = np.shape(stat)[0] # number of universities (210train + 5test)
+m = np.shape(stat)[1] # number of attributes
 
 
 # 2 count how many values in a column is number
@@ -86,5 +86,5 @@ def output(s, n, add):
 				f.write(str(final_stat_normalized[i, j]))
 			f.write("\n")
 
-output('train', 210, 0)
-output('test', 7, 210)
+output('2-train', 210, 0)
+output('2-test', n-210, 210)

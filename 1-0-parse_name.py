@@ -77,15 +77,13 @@ for i in range(len(rank)):
 
 manual_names = [
 	'Columbia University in the City of New York',
-	'Pennsylvania State University-Main Campus',
 	'University of Washington-Seattle Campus',
-	'University of Pittsburgh-Pittsburgh Campus',
 	'University of Oklahoma-Norman Campus',
 	'SUNY at Albany',
 	'University of Missouri-St Louis'
 	]
 
-manual_rank = [5, 50, 55, 69, 115, 150, 228]
+manual_rank = [5, 55, 115, 150, 228]
 
 
 new_rank = []
