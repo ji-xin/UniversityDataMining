@@ -17,7 +17,7 @@ def isnum(s):
 		return False
 
 print(np.shape(stat))
-n = 210 # number of universities
+n = 217 # number of universities (210train + 7test)
 m = 1743 # number of attributes
 
 
@@ -71,14 +71,20 @@ final_stat_normalized = final_stat / (final_stat.max(axis=0) + 1e-10) # avoid di
 # 6 save to npy and txt
 np.save('data/2-final_stat.npy', final_stat_normalized)
 
-with open('data/train.txt', 'w') as f:
-	for i in range(n):
-		f.write("-");
-		f.write(str(dic[stat[i, 3]]))
-		f.write(" qid:1")
-		for j in range(m):
-			f.write(" ")
-			f.write(str(j+1))
-			f.write(":")
-			f.write(str(final_stat_normalized[i, j]))
-		f.write("\n")
+def output(s, n, add):
+	with open('data/'+s+'.txt', 'w') as f:
+		for ii in range(n):
+			i = ii + add
+
+			f.write("-");
+			f.write(dic[stat[i, 3]])
+			f.write(" qid:1")
+			for j in range(m):
+				f.write(" ")
+				f.write(str(j+1))
+				f.write(":")
+				f.write(str(final_stat_normalized[i, j]))
+			f.write("\n")
+
+output('train', 210, 0)
+output('test', 7, 210)

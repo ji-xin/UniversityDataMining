@@ -1,5 +1,6 @@
 import numpy as np
 import csv
+import sys
 
 # 1 read names from both files
 a = []
@@ -13,7 +14,7 @@ with open('raw_data/MERGED2014_15_PP.csv', 'rb') as f:
 		n += 1
 
 stat = np.array(a)
-name_list = stat[:, 3]
+name_list = stat[:, 3] # the name list from stat
 
 b = []
 
@@ -66,7 +67,27 @@ for i in range(len(rank)):
 			bad_names.append(i)
 
 
+# for bn in bad_names:
+# 	print(bn, rank[bn, 1])
+# print('')
+
+# sys.exit(0)
+
 # 4 save matching names to npy
+
+manual_names = [
+	'Columbia University in the City of New York',
+	'Pennsylvania State University-Main Campus',
+	'University of Washington-Seattle Campus',
+	'University of Pittsburgh-Pittsburgh Campus',
+	'University of Oklahoma-Norman Campus',
+	'SUNY at Albany',
+	'University of Missouri-St Louis'
+	]
+
+manual_rank = [5, 50, 55, 69, 115, 150, 228]
+
+
 new_rank = []
 good_names = []
 for i in range(len(rank)):
@@ -74,20 +95,21 @@ for i in range(len(rank)):
 		new_rank.append(rank[i])
 		good_names.append(rank[i, 1])
 
-for nr in new_rank:
-	print(nr)
+for i in range(len(manual_names)):
+	new_rank.append((manual_rank[i], manual_names[i]))
 
 np.save('data/1-new_rank.npy', np.array(new_rank))
 
 
+# 5 save data to npy
+train_stat = []
+test_stat = []
 
-# 5 save new data to npy
-new_stat = []
 for row in stat:
 	if row[3] in good_names:
-		new_stat.append(row)
+		train_stat.append(row)
+	elif row[3] in manual_names:
+		test_stat.append(row)
 
-for ns in new_stat:
-	print(ns[3])
 
-np.save('data/1-new_stat.npy', np.array(new_stat))
+np.save('data/1-new_stat.npy', np.concatenate([np.array(train_stat), np.array(test_stat)]))
