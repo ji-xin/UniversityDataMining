@@ -81,3 +81,4 @@ with open('data/train.txt', 'w') as f:
 			f.write(str(j+1))
 			f.write(":")
 			f.write(str(final_stat_normalized[i, j]))
+		f.write("\n")
