@@ -80,10 +80,11 @@ manual_names = [
 	'University of Washington-Seattle Campus',
 	'University of Oklahoma-Norman Campus',
 	'SUNY at Albany',
+	'University of Colorado Denver/Anschutz Medical Campus',
 	'University of Missouri-St Louis'
 	]
 
-manual_rank = [5, 55, 115, 150, 228]
+manual_rank = [5, 55, 115, 150, 200, 228]
 
 
 new_rank = []

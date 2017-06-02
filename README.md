@@ -10,10 +10,11 @@ The SVM code is downloaded from [https://www.cs.cornell.edu/people/tj/svm_light/
 
 ## Results
 
-| The original rank | The predicted score | The predicted rank | University name                          |
-| :---------------: | :-----------------: | :----------------: | ---------------------------------------- |
-|         5         |     75.80960972     |         2          | Columbia University in the City of New York |
-|        55         |     52.77087185     |         50         | University of Washington-Seattle Campus  |
-|        115        |     41.46118543     |        118         | University of Oklahoma-Norman Campus     |
-|        150        |     37.39428332     |        152         | SUNY at Albany                           |
-|        228        |     26.08926273     |        220         | University of Missouri-St Louis          |
+| The original rank | The predicted score | The predicted rank |             University name              |
+| :---------------: | :-----------------: | :----------------: | :--------------------------------------: |
+|         5         |     76.00011164     |         2          | Columbia University in the City of New York |
+|        55         |     53.02081989     |         50         | University of Washington-Seattle Campus  |
+|        115        |     41.40878801     |        118         |   University of Oklahoma-Norman Campus   |
+|        150        |     37.50624646     |        152         |              SUNY at Albany              |
+|        200        |     26.8471974      |        220         | University of Colorado Denver/Anschutz Medical Campus |
+|        228        |     26.18748815     |        220         |     University of Missouri-St Louis      |
