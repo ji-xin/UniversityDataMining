@@ -1,4 +1,5 @@
 import numpy as np
+import csv
 
 train = []
 test = []
@@ -32,3 +33,44 @@ with open('data/4-test_score.txt', 'w') as f:
 			if sorted_train[i][1]<entry[1]:
 				f.write(str(sorted_train[i][0])+"\n")
 				break
+
+
+
+with open('raw_data/MERGED2014_15_PP.csv', 'rb') as f:
+
+	attrs = 0
+	csvfile = csv.reader(f, delimiter=',', quotechar='"')
+	for row in csvfile:
+		attrs = row
+		break
+
+	num = np.load('data/2-attr.npy')
+	waiting = []
+	for n in num:
+		waiting.append((n, attrs[n]))
+
+
+
+	with open('data/3-parameter.dat', 'r') as fpara:
+		for i in range(11):
+			fpara.readline()
+
+		para_line = fpara.readline()
+		para_pair_ori = para_line.split(' ')[1:-1]
+		para_pair = [(int(p.split(':')[0])-1, float(p.split(':')[1]))
+			for p in para_pair_ori]
+
+		
+		final_triple = []
+		for p in para_pair:
+			i = p[0]
+			temp = (i, p[1], waiting[i][0], waiting[i][1])
+			final_triple.append(temp)
+
+		with open('data/4-parameter_analysis.txt', 'w') as fout:
+			final_sorted = sorted(final_triple,
+				key=lambda x:abs(x[1]), reverse = True)
+
+			for fs in final_sorted:
+				fout.write(str(fs[0])+"\t"+str(fs[1])+"\t")
+				fout.write(str(fs[2])+"\t"+str(fs[3])+"\n")
