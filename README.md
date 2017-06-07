@@ -1,3 +1,7 @@
+## Program website
+
+https://github.com/Ji-Xin/UniversityDataMining
+
 ## How to run these codes
 
 * `$ mkdir data`
