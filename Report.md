@@ -1,9 +1,5 @@
 ## 第二次作业报告
 
-辛极	2014012288
-
-余海林	2014012280
-
 
 
 https://github.com/Ji-Xin/UniversityDataMining 
