@@ -6,6 +6,12 @@
 
 
 
+https://github.com/Ji-Xin/UniversityDataMining 
+
+提交的zip文件只包含代码和报告，完整的数据请参考此github网页。
+
+
+
 *   数据获取和预处理
 
     *   数据获取
@@ -64,6 +70,8 @@
         此后在测试集上测试效果。测试集包括6间学校，是从一开始名字无法匹配的学校里手动抽出来并且匹配名字的，抽的时候基本上是每隔四五十的名次抽一间。
 
     *   分析参数中每一维的内容`4-analyse.py`。
+
+        具体每一维的含义在https://github.com/Ji-Xin/UniversityDataMining/blob/master/raw_data/useless/FullDataDocumentation.pdf 中。
 
 
 
