@@ -3,3 +3,4 @@ raw_data/useless/*
 data/*.npy
 !raw_data/useless/*.pdf
 *.pptx
+*.docx
